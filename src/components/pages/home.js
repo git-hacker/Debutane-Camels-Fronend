@@ -18,7 +18,7 @@ class Home extends Component {
     }
     render() {
         return (
-            <div className="home-container">
+            <div className="container">
                 <Button
                     className="openChat"
                     type="primary"

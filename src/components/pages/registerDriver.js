@@ -11,7 +11,7 @@ class RegisterDriver extends Component {
     }
     render() {
         return (
-            <div className="home-container">
+            <div className="container">
             1111111
             </div>
         )
