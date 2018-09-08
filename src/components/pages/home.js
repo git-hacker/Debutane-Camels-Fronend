@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 
-class RegisterDriver extends Component {
+class Home extends Component {
     componentWillMount() {
     }
     componentDidMount() {
@@ -12,7 +12,6 @@ class RegisterDriver extends Component {
     render() {
         return (
             <div className="home-container">
-            1111111
             </div>
         )
     }
@@ -23,4 +22,4 @@ function mapStateToProps (state) {
     }
 }
 
-export default connect(mapStateToProps)(RegisterDriver);
+export default connect(mapStateToProps)(Home)
