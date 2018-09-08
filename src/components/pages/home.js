@@ -11,8 +11,10 @@ class Home extends Component {
     componentWillUpdate() {
     }
     registerDriver() {
+        this.props.history.push('register-driver')
     }
     registerClient() {
+        this.props.history.push('register-client')
     }
     render() {
         return (
@@ -21,7 +23,7 @@ class Home extends Component {
                     className="openChat"
                     type="primary"
                     style={{ marginBottom: 12 }}
-                    onClick={this.registerDriver}
+                    onClick={this.registerDriver.bind(this)}
                 >
                     I want to drive!
                 </Button>
@@ -29,7 +31,7 @@ class Home extends Component {
                     className="openChat"
                     type="primary"
                     style={{ marginBottom: 12 }}
-                    onClick={this.registerClient}
+                    onClick={this.registerClient.bind(this)}
                 >
                     I want to ship!
                 </Button>

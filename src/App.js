@@ -8,6 +8,7 @@ import './App.css'
 import 'antd/dist/antd.css'
 import { Layout } from 'antd'
 import RegisterDriver from './components/pages/registerDriver'
+import RegisterClient from './components/pages/registerClient'
 import Home from './components/pages/home'
 const { Header, Footer, Sider, Content } = Layout;
 class App extends Component {
@@ -16,10 +17,11 @@ class App extends Component {
       <div className="App">
         <Layout>
             <Header></Header>
-            <div id='content-wrapper'>
+            <Layout id='content-wrapper'>
                 <Route exact path="/" history={history} component={Home} />
                 <Route exact path="/register-driver" history={history} component={RegisterDriver} />
-            </div>
+                <Route exact path="/register-client" history={history} component={RegisterClient} />
+            </Layout>
             <Footer></Footer>
         </Layout>
       </div>
