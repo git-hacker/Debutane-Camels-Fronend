@@ -9,14 +9,6 @@ class RegisterDriver extends Component {
         super(props)
         this.state = {
             confirmDirty: false,
-            phone: '',
-            driverLiscNo: '',
-            idcardNo: '',
-            weightLimit: '',
-            specialQualification: '',
-            truckHeight: '',
-            password: '',
-            repeatPassword: '',
         }
     }
     componentWillMount() {
@@ -24,30 +16,6 @@ class RegisterDriver extends Component {
     componentDidMount() {
     }
     componentWillUpdate() {
-    }
-    handleIDChange(event) {
-        this.setState({ idcardNo: event.target.value });
-    }
-    handleDriverLicenceChange(event) {
-        this.setState({ driverLiscNo: event.target.value });
-    }
-    handlePhoneChange(event) {
-        this.setState({ phone: event.target.value });
-    }
-    handleWeightChange(event) {
-        this.setState({ weightLimit: event.target.value });
-    }
-    handleHeightChange(event) {
-        this.setState({ truckHeight: event.target.value });
-    }
-    handleSpecialQualificationChange(event) {
-        this.setState({ specialQualification: event.target.value });
-    }
-    handlePasswordChange(event) {
-        this.setState({ password: event.target.value });
-    }
-    handleRepeatPasswordChange(event) {
-        this.setState({ repeatPassword: event.target.value });
     }
     compareToFirstPassword = (rule, value, callback) => {
         const form = this.props.form;
@@ -64,7 +32,6 @@ class RegisterDriver extends Component {
         }
         callback();
     }
-
     register(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -72,16 +39,17 @@ class RegisterDriver extends Component {
                 console.log('Received values of form: ', values);
             }
         });
-        /*        
+        const form = this.props.form;
+        const data = {
+            'phone': form.getFieldValue('phone'),
+            'driverLiscNo': form.getFieldValue('driverLiscNo'),
+            'idcardNo': form.getFieldValue('idcardNo'),
+            'weightLimit': form.getFieldValue('weightLimit'),
+            'specialQualification': form.getFieldValue('specialQualification'),
+            'truckHeight': form.getFieldValue('truckHeight')
+        }
         BackendHelper.signinDriver(
-            {
-                'phone': this.state.phone,
-                'driverLiscNo': this.state.driverLiscNo,
-                'idcardNo': this.state.idcardNo,
-                'weightLimit': this.state.weightLimit,
-                'specialQualification': this.state.specialQualification,
-                'truckHeight': this.state.truckHeight
-            },
+            data,
             (data) => {
                 console.log(data)
             },
@@ -89,7 +57,6 @@ class RegisterDriver extends Component {
                 console.log(err)
             }
         )
-        */
     }
     render() {
         const FormItem = Form.Item
@@ -109,24 +76,21 @@ class RegisterDriver extends Component {
                         {getFieldDecorator('phone', {
                             rules: [{ required: true, message: 'Please input your phone number!' }],
                         })(
-                            <Input
-                                onChange={this.handlePhoneChange.bind(this)} />
+                            <Input />
                         )}
                     </FormItem>
                     <FormItem {...formItemLayout} label="ID card">
                         {getFieldDecorator('idcardNo', {
                             rules: [{ required: true, message: 'Please input your ID' }],
                         })(
-                            <Input
-                                onChange={this.handlePhoneChange.bind(this)} />
+                            <Input />
                         )}
                     </FormItem>
                     <FormItem {...formItemLayout} label="Driver Licence">
                         {getFieldDecorator('driverLiscNo', {
                             rules: [{ required: true, message: 'Please input licence no.' }],
                         })(
-                            <Input
-                                onChange={this.handleDriverLicenceChange.bind(this)} />
+                            <Input />
                         )}
                     </FormItem>
                     <FormItem {...formItemLayout} label="Available weight">
@@ -134,8 +98,7 @@ class RegisterDriver extends Component {
                             rules: [{ required: true, message: 'Please input weight you can take' }],
                         })(
                             <Input
-                                type="number"
-                                onChange={this.handleWeightChange.bind(this)} />
+                                type="number" />
                         )}
                     </FormItem>
                     <FormItem {...formItemLayout} label="Truck height">
@@ -143,8 +106,7 @@ class RegisterDriver extends Component {
                             rules: [{ required: true, message: 'Please input height of you truck' }],
                         })(
                             <Input
-                                type="number"
-                                onChange={this.handleHeightChange.bind(this)} />
+                                type="number" />
                         )}
                     </FormItem>
                     <FormItem {...formItemLayout} label="Password">
@@ -156,7 +118,6 @@ class RegisterDriver extends Component {
                             }],
                         })(
                             <Input
-                                onChange={this.handlePasswordChange.bind(this)}
                                 type="password" />
                         )}
                     </FormItem>
@@ -169,16 +130,18 @@ class RegisterDriver extends Component {
                             }],
                         })(
                             <Input
-                                onChange={this.handleRepeatPasswordChange.bind(this)}
                                 type="password"
                                 onBlur={this.handleConfirmBlur} />
                         )}
                     </FormItem>
                     <FormItem {...formItemLayout} label="Special qualification">
-                        <TextArea
-                            onChange={this.handleSpecialQualificationChange.bind(this)}
-                            placeholder=""
-                            rows={4} />
+                        {getFieldDecorator('specialQualification', {
+                            rules: [{}],
+                        })(
+                            <TextArea
+                                placeholder=""
+                                rows={4} />
+                        )}
                     </FormItem>
                     <FormItem>
                         <Button type="primary" htmlType="submit">
