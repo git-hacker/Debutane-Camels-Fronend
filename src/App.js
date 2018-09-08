@@ -5,7 +5,11 @@ import { Route, withRouter } from 'react-router-dom'
 import { history } from './store'
 //import logo from './logo.svg';
 import './App.css'
-import 'antd/dist/antd.css'
+/** import 'antd/dist/antd.css' **/
+import "jquery/dist/jquery.js"
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.bundle.js'
+
 import { Layout } from 'antd'
 import RegisterDriver from './components/pages/registerDriver'
 import RegisterClient from './components/pages/registerClient'

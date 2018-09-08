@@ -12,7 +12,9 @@ class RegisterClient extends Component {
     render() {
         return (
             <div className="container">
-            1111111
+            <h1 className="center btn btn-primary">
+                EOPI Driver
+            </h1>
             </div>
         )
     }
