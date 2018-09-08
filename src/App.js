@@ -5,6 +5,7 @@ import { Route, withRouter } from 'react-router-dom'
 import { history } from './store'
 //import logo from './logo.svg';
 import './App.css';
+import 'antd/dist/antd.css';
 import RegisterDriver from './components/pages/registerDriver'
 import Home from './components/pages/home'
 
