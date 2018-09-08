@@ -10,7 +10,9 @@ import { Layout } from 'antd'
 import RegisterDriver from './components/pages/registerDriver'
 import RegisterClient from './components/pages/registerClient'
 import Home from './components/pages/home'
-const { Header, Footer, Sider, Content } = Layout;
+
+const { Header, Footer } = Layout
+
 class App extends Component {
   render() {
     return (
