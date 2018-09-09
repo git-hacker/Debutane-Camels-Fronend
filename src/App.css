@@ -1,3 +1,17 @@
+html {
+  font-size: 15px; /* sets baseline font size for all relative units */
+  }
+  
+  body {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background-color: #a7adbb;
+      color: black;
+  }
+
+.center {
+  text-align: center;
+}
+
 .App {
   text-align: center;
   height: auto;
